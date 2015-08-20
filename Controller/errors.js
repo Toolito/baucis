@@ -84,13 +84,13 @@ var decorator = module.exports = function (options, protect) {
     next(RestError.LockConflict());
   });
   // Translate other errors to internal server errors.
-  /*protect.use(function (error, request, response, next) {
+  protect.use(function (error, request, response, next) {
     if (!error) return next();
     if (error instanceof RestError) return next(error);
     var error2 = RestError.InternalServerError(error.message);
     error2.stack = error.stack;
     next(error2);
-  });*/
+  });
   // Format the error based on the Accept header.
   protect.use(function (error, request, response, next) {
     if (!error) return next();
