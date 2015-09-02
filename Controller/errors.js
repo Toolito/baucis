@@ -131,6 +131,8 @@ var decorator = module.exports = function (options, protect) {
         delete o.domain;
         delete o.domainEmitter;
         delete o.domainThrown;
+        delete o.stack;
+        delete o.properties;
         return o;
       });
 
